@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+//aa
+
 @Entity
 @Table(name = "Anuncio")
 public class Anuncio {
