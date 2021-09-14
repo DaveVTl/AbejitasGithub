@@ -20,8 +20,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.faces</groupId>
@@ -54,8 +52,6 @@
 			<version>8.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-
 
 	</dependencies>
 </project>

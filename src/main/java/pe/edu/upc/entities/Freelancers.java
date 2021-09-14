@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,19 +29,27 @@ public class Freelancers {
 	@Column(name = "CVFreelancers", nullable = false, length = 100)
 	private String CVFreelancers;
 
+	@Column(name = "FotoPerfilFreelancers", nullable = false, length = 100)
+	private String FotoPerfilFreelancers;
+	
+	@Column(name = "fechaInscripcionFreelancers", nullable = false, length = 100)
+	private Date fechaInscripcionFreelancers;
+	
 	public Freelancers() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
-			String cVFreelancers) {
+			String cVFreelancers, String fotoPerfilFreelancers, Date fechaInscripcionFreelancers) {
 		super();
 		this.idFreelancers = idFreelancers;
 		this.nameFreelancers = nameFreelancers;
 		this.dniFreelancers = dniFreelancers;
 		this.descriptionFreelancers = descriptionFreelancers;
 		CVFreelancers = cVFreelancers;
+		FotoPerfilFreelancers = fotoPerfilFreelancers;
+		this.fechaInscripcionFreelancers = fechaInscripcionFreelancers;
 	}
 
 	public int getIdFreelancers() {
@@ -81,10 +91,21 @@ public class Freelancers {
 	public void setCVFreelancers(String cVFreelancers) {
 		CVFreelancers = cVFreelancers;
 	}
-	
-	/*
-	@Column(name = "FotoPerfilFreelancers", nullable = false)
-	private bytea FotoPerfilFreelancers;
-	*/
 
+	public String getFotoPerfilFreelancers() {
+		return FotoPerfilFreelancers;
+	}
+
+	public void setFotoPerfilFreelancers(String fotoPerfilFreelancers) {
+		FotoPerfilFreelancers = fotoPerfilFreelancers;
+	}
+
+	public Date getFechaInscripcionFreelancers() {
+		return fechaInscripcionFreelancers;
+	}
+
+	public void setFechaInscripcionFreelancers(Date fechaInscripcionFreelancers) {
+		this.fechaInscripcionFreelancers = fechaInscripcionFreelancers;
+	}
+	
 }

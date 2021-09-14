@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,15 +27,15 @@ public class Mypes {
 	private String descriptionFreelancers;
 	
 	@Column(name = "fechaInscripcionMypes", nullable = false, length = 100)
-	private String fechaInscripcionMypes;
+	private Date fechaInscripcionMypes;
 
 	public Mypes() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Mypes(int idMypes, String nameEmpresaMypes, int dniFreelancers, String descriptionFreelancers,
-			String fechaInscripcionMypes) {
+			Date fechaInscripcionMypes) {
 		super();
 		this.idMypes = idMypes;
 		this.nameEmpresaMypes = nameEmpresaMypes;

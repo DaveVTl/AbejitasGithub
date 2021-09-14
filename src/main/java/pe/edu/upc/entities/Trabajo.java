@@ -13,30 +13,23 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Anuncio")
-public class Anuncio {
+@Table(name = "Trabajo")
+public class Trabajo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAnuncio;
+	private int idTrabajo;
 
-	@Column(name = "nameAnuncio", length = 45, nullable = false)
-	private String nameAnuncio;
-
-	@Column(name = "descriptionAnuncio", nullable = false, length = 254)
+	@Column(name = "nuevaDescriptionTrabajo", nullable = false, length = 254)
 	private String descriptionAnuncio;
 	
-	private Date dateCreacionAnuncio;
+	private Date dateCreacionTrabajo;
 	
 	@Column(name = "EstadoTrabajo", nullable = false, length = 01)
 	private Boolean EstadoTrabajo;
 	
-	@Column(name = "pagosAnuncio", nullable = false, length = 60)
+	@Column(name = "nuevoPagoTrabajo", nullable = false, length = 60)
 	private int pagosAnuncio;
-	
-	@ManyToOne
-    @JoinColumn(name="idMypes", nullable = false)
-    private Mypes mypes;
 
 	@ManyToOne
     @JoinColumn(name="idFreelancers", nullable = false)
@@ -50,42 +43,30 @@ public class Anuncio {
     @JoinColumn(name="idTipoPago", nullable = false)
     private TipoPago tipoPago;
 
-	public Anuncio() {
+	public Trabajo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	public Anuncio(int idAnuncio, String nameAnuncio, String descriptionAnuncio, Date dateCreacionAnuncio,
-			Boolean estadoTrabajo, int pagosAnuncio, Mypes mypes, Freelancers freelancers, TipoTrabajo tipoTrabajo,
-			TipoPago tipoPago) {
+	public Trabajo(int idTrabajo, String descriptionAnuncio, Date dateCreacionTrabajo, Boolean estadoTrabajo,
+			int pagosAnuncio, Freelancers freelancers, TipoTrabajo tipoTrabajo, TipoPago tipoPago) {
 		super();
-		this.idAnuncio = idAnuncio;
-		this.nameAnuncio = nameAnuncio;
+		this.idTrabajo = idTrabajo;
 		this.descriptionAnuncio = descriptionAnuncio;
-		this.dateCreacionAnuncio = dateCreacionAnuncio;
+		this.dateCreacionTrabajo = dateCreacionTrabajo;
 		EstadoTrabajo = estadoTrabajo;
 		this.pagosAnuncio = pagosAnuncio;
-		this.mypes = mypes;
 		this.freelancers = freelancers;
 		this.tipoTrabajo = tipoTrabajo;
 		this.tipoPago = tipoPago;
 	}
 
-	public int getIdAnuncio() {
-		return idAnuncio;
+	public int getIdTrabajo() {
+		return idTrabajo;
 	}
 
-	public void setIdAnuncio(int idAnuncio) {
-		this.idAnuncio = idAnuncio;
-	}
-
-	public String getNameAnuncio() {
-		return nameAnuncio;
-	}
-
-	public void setNameAnuncio(String nameAnuncio) {
-		this.nameAnuncio = nameAnuncio;
+	public void setIdTrabajo(int idTrabajo) {
+		this.idTrabajo = idTrabajo;
 	}
 
 	public String getDescriptionAnuncio() {
@@ -96,12 +77,12 @@ public class Anuncio {
 		this.descriptionAnuncio = descriptionAnuncio;
 	}
 
-	public Date getDateCreacionAnuncio() {
-		return dateCreacionAnuncio;
+	public Date getDateCreacionTrabajo() {
+		return dateCreacionTrabajo;
 	}
 
-	public void setDateCreacionAnuncio(Date dateCreacionAnuncio) {
-		this.dateCreacionAnuncio = dateCreacionAnuncio;
+	public void setDateCreacionTrabajo(Date dateCreacionTrabajo) {
+		this.dateCreacionTrabajo = dateCreacionTrabajo;
 	}
 
 	public Boolean getEstadoTrabajo() {
@@ -118,14 +99,6 @@ public class Anuncio {
 
 	public void setPagosAnuncio(int pagosAnuncio) {
 		this.pagosAnuncio = pagosAnuncio;
-	}
-
-	public Mypes getMypes() {
-		return mypes;
-	}
-
-	public void setMypes(Mypes mypes) {
-		this.mypes = mypes;
 	}
 
 	public Freelancers getFreelancers() {
@@ -151,8 +124,7 @@ public class Anuncio {
 	public void setTipoPago(TipoPago tipoPago) {
 		this.tipoPago = tipoPago;
 	}
-	
-	
 
+	
 	
 }

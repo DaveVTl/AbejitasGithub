@@ -11,8 +11,8 @@
 		<class>pe.edu.upc.entities.Mypes</class>
 		<class>pe.edu.upc.entities.TipoPago</class>
 		<class>pe.edu.upc.entities.Anuncio</class>
-		<class>pe.edu.upc.entities.FreelancersReviews</class>
-		<class>pe.edu.upc.entities.MypesReviews</class>
+		<class>pe.edu.upc.entities.Reviews</class>
+		<class>pe.edu.upc.entities.Trabajo</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
