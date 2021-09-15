@@ -25,6 +25,9 @@ public class Reviews {
 	@Column(name = "DescripcionReviews", length = 254, nullable = false)
 	private int DescripcionReviews;
 	
+	@Column(name = "TipoReviews", length = 10, nullable = false)
+	private int TipoReviews;
+	
 	@ManyToOne
     @JoinColumn(name="idTrabajo", nullable = false)
     private Anuncio idAnuncio;
@@ -35,11 +38,14 @@ public class Reviews {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reviews(int idMypesReviews, int numeroCalificacion, int descripcionReviews, Anuncio idAnuncio) {
+
+	public Reviews(int idMypesReviews, int numeroCalificacion, int descripcionReviews, int tipoReviews,
+			Anuncio idAnuncio) {
 		super();
 		this.idMypesReviews = idMypesReviews;
 		this.numeroCalificacion = numeroCalificacion;
 		DescripcionReviews = descripcionReviews;
+		TipoReviews = tipoReviews;
 		this.idAnuncio = idAnuncio;
 	}
 
@@ -74,6 +80,16 @@ public class Reviews {
 	}
 
 
+	public int getTipoReviews() {
+		return TipoReviews;
+	}
+
+
+	public void setTipoReviews(int tipoReviews) {
+		TipoReviews = tipoReviews;
+	}
+
+
 	public Anuncio getIdAnuncio() {
 		return idAnuncio;
 	}
@@ -82,6 +98,7 @@ public class Reviews {
 	public void setIdAnuncio(Anuncio idAnuncio) {
 		this.idAnuncio = idAnuncio;
 	}
+
 
 	
 }
