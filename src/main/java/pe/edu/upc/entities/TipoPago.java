@@ -18,9 +18,7 @@ public class TipoPago {
 	@Column(name = "nameTipoPago", length = 45, nullable = false)
 	private String nameTipoPago;
 
-	/**
-	 * 
-	 */
+	
 	public TipoPago() {
 		super();
 		// TODO Auto-generated constructor stub
