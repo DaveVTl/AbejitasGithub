@@ -28,20 +28,24 @@ public class Mypes {
 	
 	@Column(name = "fechaInscripcionMypes", nullable = false, length = 100)
 	private Date fechaInscripcionMypes;
+	
+	@Column(name = "logoMypes", nullable = false, length = 100)
+	private String logoMypes;
 
 	public Mypes() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Mypes(int idMypes, String nameEmpresaMypes, int dniFreelancers, String descriptionFreelancers,
-			Date fechaInscripcionMypes) {
+			Date fechaInscripcionMypes, String logoMypes) {
 		super();
 		this.idMypes = idMypes;
 		this.nameEmpresaMypes = nameEmpresaMypes;
 		this.dniFreelancers = dniFreelancers;
 		this.descriptionFreelancers = descriptionFreelancers;
 		this.fechaInscripcionMypes = fechaInscripcionMypes;
+		this.logoMypes = logoMypes;
 	}
 
 	public int getIdMypes() {
@@ -76,12 +80,21 @@ public class Mypes {
 		this.descriptionFreelancers = descriptionFreelancers;
 	}
 
-	public String getFechaInscripcionMypes() {
+	public Date getFechaInscripcionMypes() {
 		return fechaInscripcionMypes;
 	}
 
-	public void setFechaInscripcionMypes(String fechaInscripcionMypes) {
+	public void setFechaInscripcionMypes(Date fechaInscripcionMypes) {
 		this.fechaInscripcionMypes = fechaInscripcionMypes;
 	}
+
+	public String getLogoMypes() {
+		return logoMypes;
+	}
+
+	public void setLogoMypes(String logoMypes) {
+		this.logoMypes = logoMypes;
+	}
+	
 
 }
