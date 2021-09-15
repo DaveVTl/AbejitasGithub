@@ -4,22 +4,25 @@ import java.util.List;
 
 import javax.inject.Named;
 
-import pe.edu.upc.dao.IFreelancersDao;
-import pe.edu.upc.entities.Freelancers;
+import pe.edu.upc.dao.IAnuncioDao;
+import pe.edu.upc.entities.Anuncio;
 
 @Named
-public class AnuncioImpl implements IFreelancersDao{
+public class AnuncioImpl implements IAnuncioDao{
 
 	@Override
-	public void insert(Freelancers f) {
+	public void insert(Anuncio a) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Freelancers> list() {
+	public List<Anuncio> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
 
 }

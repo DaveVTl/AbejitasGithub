@@ -4,23 +4,21 @@ import java.util.List;
 
 import javax.inject.Named;
 
-import pe.edu.upc.entities.Anuncio;
-import pe.edu.upc.service.IAnuncioService;
+import pe.edu.upc.dao.ITrabajoDao;
+import pe.edu.upc.entities.Trabajo;
 @Named
-public class TrabajoImpl implements IAnuncioService{
+public class TrabajoImpl implements ITrabajoDao{
 
 	@Override
-	public void insert(Anuncio a) {
+	public void insert(Trabajo t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Anuncio> list() {
+	public List<Trabajo> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 }
