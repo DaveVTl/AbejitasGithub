@@ -21,7 +21,7 @@ public class Freelancers {
 	private String nameFreelancers;
 
 	@Column(name = "dniFreelancers", nullable = false, length = 15)
-	private int dniFreelancers;
+	private String dniFreelancers;
 	
 	@Column(name = "descriptionFreelancers", nullable = false, length = 254)
 	private String descriptionFreelancers;
@@ -40,7 +40,7 @@ public class Freelancers {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
+	public Freelancers(int idFreelancers, String nameFreelancers, String dniFreelancers, String descriptionFreelancers,
 			String cVFreelancers, String fotoFreelancers) {
 		super();
 		this.idFreelancers = idFreelancers;
@@ -67,11 +67,11 @@ public class Freelancers {
 		this.nameFreelancers = nameFreelancers;
 	}
 
-	public int getDniFreelancers() {
+	public String getDniFreelancers() {
 		return dniFreelancers;
 	}
 
-	public void setDniFreelancers(int dniFreelancers) {
+	public void setDniFreelancers(String dniFreelancers) {
 		this.dniFreelancers = dniFreelancers;
 	}
 
