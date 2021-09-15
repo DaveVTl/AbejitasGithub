@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.javamoney.moneta.Money;
+
 
 @Entity
 @Table(name = "Anuncio")
@@ -28,48 +30,31 @@ public class Anuncio {
 	
 	private Date dateCreacionAnuncio;
 	
-	@Column(name = "EstadoTrabajo", nullable = false, length = 01)
-	private Boolean EstadoTrabajo;
-	
-	@Column(name = "pagosAnuncio", nullable = false, length = 60)
-	private int pagosAnuncio;
+	private Money pagosAnuncio;
 	
 	@ManyToOne
     @JoinColumn(name="idMypes", nullable = false)
     private Mypes mypes;
-
-	@ManyToOne
-    @JoinColumn(name="idFreelancers", nullable = false)
-    private Freelancers freelancers;
 	
 	@ManyToOne
     @JoinColumn(name="idTipoTrabajo", nullable = false)
     private TipoTrabajo tipoTrabajo;
-	
-	@ManyToOne
-    @JoinColumn(name="idTipoPago", nullable = false)
-    private TipoPago tipoPago;
 
 	public Anuncio() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
 	public Anuncio(int idAnuncio, String nameAnuncio, String descriptionAnuncio, Date dateCreacionAnuncio,
-			Boolean estadoTrabajo, int pagosAnuncio, Mypes mypes, Freelancers freelancers, TipoTrabajo tipoTrabajo,
-			TipoPago tipoPago) {
+			Money pagosAnuncio, Mypes mypes, TipoTrabajo tipoTrabajo) {
 		super();
 		this.idAnuncio = idAnuncio;
 		this.nameAnuncio = nameAnuncio;
 		this.descriptionAnuncio = descriptionAnuncio;
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
-		EstadoTrabajo = estadoTrabajo;
 		this.pagosAnuncio = pagosAnuncio;
 		this.mypes = mypes;
-		this.freelancers = freelancers;
 		this.tipoTrabajo = tipoTrabajo;
-		this.tipoPago = tipoPago;
 	}
 
 	public int getIdAnuncio() {
@@ -104,19 +89,11 @@ public class Anuncio {
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 	}
 
-	public Boolean getEstadoTrabajo() {
-		return EstadoTrabajo;
-	}
-
-	public void setEstadoTrabajo(Boolean estadoTrabajo) {
-		EstadoTrabajo = estadoTrabajo;
-	}
-
-	public int getPagosAnuncio() {
+	public Money getPagosAnuncio() {
 		return pagosAnuncio;
 	}
 
-	public void setPagosAnuncio(int pagosAnuncio) {
+	public void setPagosAnuncio(Money pagosAnuncio) {
 		this.pagosAnuncio = pagosAnuncio;
 	}
 
@@ -128,14 +105,6 @@ public class Anuncio {
 		this.mypes = mypes;
 	}
 
-	public Freelancers getFreelancers() {
-		return freelancers;
-	}
-
-	public void setFreelancers(Freelancers freelancers) {
-		this.freelancers = freelancers;
-	}
-
 	public TipoTrabajo getTipoTrabajo() {
 		return tipoTrabajo;
 	}
@@ -143,16 +112,6 @@ public class Anuncio {
 	public void setTipoTrabajo(TipoTrabajo tipoTrabajo) {
 		this.tipoTrabajo = tipoTrabajo;
 	}
-
-	public TipoPago getTipoPago() {
-		return tipoPago;
-	}
-
-	public void setTipoPago(TipoPago tipoPago) {
-		this.tipoPago = tipoPago;
-	}
-	
-	
 
 	
 }

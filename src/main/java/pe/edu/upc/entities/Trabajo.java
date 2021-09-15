@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.javamoney.moneta.Money;
+
 
 @Entity
 @Table(name = "Trabajo")
@@ -28,8 +30,7 @@ public class Trabajo {
 	@Column(name = "EstadoTrabajo", nullable = false, length = 01)
 	private Boolean EstadoTrabajo;
 	
-	@Column(name = "nuevoPagoTrabajo", nullable = false, length = 60)
-	private int pagosAnuncio;
+	private Money pagosAnuncio;
 
 	@ManyToOne
     @JoinColumn(name="idFreelancers", nullable = false)
@@ -49,7 +50,7 @@ public class Trabajo {
 	}
 
 	public Trabajo(int idTrabajo, String descriptionAnuncio, Date dateCreacionTrabajo, Boolean estadoTrabajo,
-			int pagosAnuncio, Freelancers freelancers, TipoTrabajo tipoTrabajo, TipoPago tipoPago) {
+			Money pagosAnuncio, Freelancers freelancers, TipoTrabajo tipoTrabajo, TipoPago tipoPago) {
 		super();
 		this.idTrabajo = idTrabajo;
 		this.descriptionAnuncio = descriptionAnuncio;
@@ -93,11 +94,11 @@ public class Trabajo {
 		EstadoTrabajo = estadoTrabajo;
 	}
 
-	public int getPagosAnuncio() {
+	public Money getPagosAnuncio() {
 		return pagosAnuncio;
 	}
 
-	public void setPagosAnuncio(int pagosAnuncio) {
+	public void setPagosAnuncio(Money pagosAnuncio) {
 		this.pagosAnuncio = pagosAnuncio;
 	}
 
@@ -124,7 +125,7 @@ public class Trabajo {
 	public void setTipoPago(TipoPago tipoPago) {
 		this.tipoPago = tipoPago;
 	}
-
+	
 	
 	
 }
