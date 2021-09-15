@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.dao.IPersonDao;
+import pe.edu.upc.dao.IFreelancersDao;
 import pe.edu.upc.entities.Person;
 import pe.edu.upc.service.IPersonService;
 
@@ -14,7 +14,7 @@ import pe.edu.upc.service.IPersonService;
 @RequestScoped
 public class PersonServiceImpl implements IPersonService {
 	@Inject
-	private IPersonDao pDao;
+	private IFreelancersDao pDao;
 
 	@Override
 	public void insert(Person p) {

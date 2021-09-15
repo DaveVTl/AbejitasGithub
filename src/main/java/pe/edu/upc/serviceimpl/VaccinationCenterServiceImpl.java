@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.dao.IVaccinationCenterDao;
+import pe.edu.upc.dao.IMypesDao;
 import pe.edu.upc.entities.VaccinationCenter;
 import pe.edu.upc.service.IVaccinationCenterService;
 
@@ -14,7 +14,7 @@ import pe.edu.upc.service.IVaccinationCenterService;
 @RequestScoped
 public class VaccinationCenterServiceImpl implements IVaccinationCenterService {
 	@Inject
-	private IVaccinationCenterDao vDao;
+	private IMypesDao vDao;
 
 	@Override
 	public void insert(VaccinationCenter vc) {

@@ -8,33 +8,37 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.IPersonDao;
-import pe.edu.upc.entities.Person;
+import pe.edu.upc.dao.IMypesDao;
+import pe.edu.upc.entities.Mypes;
 
-public class PersonDaoImpl implements IPersonDao {
+public class MypesDaoImpl implements IMypesDao {
 	
 	@PersistenceContext(unitName = "demoCrudSV61")
 	private EntityManager em;
 
 	@Transactional
 	@Override
-	public void insert(Person p) {
+	public void insert(Mypes mp) {
+
 		try {
-			em.persist(p);
+			em.persist(mp);
 		} catch (Exception e) {
-			System.out.println("Error al insertar persona");
+
+			System.out.println("Error al insertar mypes");
 		}
+
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Person> list() {
-		List<Person> lista = new ArrayList<Person>();
+	public List<Mypes> list() {
+		List<Mypes> lista = new ArrayList<Mypes>();
 		try {
-			Query q = em.createQuery("select p from Person p");
-			lista = (List<Person>) q.getResultList();
+
+			Query q = em.createQuery("select mp from Mypes mp");
+			lista = (List<Mypes>) q.getResultList();
 		} catch (Exception e) {
-			System.out.println("Error al listar persona");
+			System.out.println("Error al listar mypes");
 		}
 		return lista;
 	}
