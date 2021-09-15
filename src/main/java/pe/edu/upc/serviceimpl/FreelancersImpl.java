@@ -8,7 +8,7 @@ import pe.edu.upc.dao.IFreelancersDao;
 import pe.edu.upc.entities.Freelancers;
 
 @Named
-public class AnuncioImpl implements IFreelancersDao{
+public class FreelancersImpl implements IFreelancersDao{
 
 	@Override
 	public void insert(Freelancers f) {
