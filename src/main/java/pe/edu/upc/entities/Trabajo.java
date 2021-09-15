@@ -27,6 +27,9 @@ public class Trabajo {
 	@Column(name = "descriptionTrabajo", nullable = false, length = 254)
 	private String descriptionTrabajo;
 	
+	@Column(name = "EstadoTrabajo", nullable = false, length = 10)
+	private String EstadoTrabajo;
+	
 	private Date dateCreacionAnuncio;
 	
 	@Column(name = "nuevoPagoTrabajo", nullable = false)
@@ -49,12 +52,14 @@ public class Trabajo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Trabajo(int idTrabajo, String nameTrabajo, String descriptionTrabajo, Date dateCreacionAnuncio,
-			Money nuevoPagoTrabajo, Freelancers freelancers, Anuncio anuncio, TipoPago tipoPago) {
+	public Trabajo(int idTrabajo, String nameTrabajo, String descriptionTrabajo, String estadoTrabajo,
+			Date dateCreacionAnuncio, Money nuevoPagoTrabajo, Freelancers freelancers, Anuncio anuncio,
+			TipoPago tipoPago) {
 		super();
 		this.idTrabajo = idTrabajo;
 		this.nameTrabajo = nameTrabajo;
 		this.descriptionTrabajo = descriptionTrabajo;
+		EstadoTrabajo = estadoTrabajo;
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 		this.nuevoPagoTrabajo = nuevoPagoTrabajo;
 		this.freelancers = freelancers;
@@ -84,6 +89,14 @@ public class Trabajo {
 
 	public void setDescriptionTrabajo(String descriptionTrabajo) {
 		this.descriptionTrabajo = descriptionTrabajo;
+	}
+
+	public String getEstadoTrabajo() {
+		return EstadoTrabajo;
+	}
+
+	public void setEstadoTrabajo(String estadoTrabajo) {
+		EstadoTrabajo = estadoTrabajo;
 	}
 
 	public Date getDateCreacionAnuncio() {

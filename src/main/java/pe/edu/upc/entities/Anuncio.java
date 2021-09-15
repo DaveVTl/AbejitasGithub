@@ -45,21 +45,16 @@ public class Anuncio {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 	public Anuncio(int idAnuncio, String nameAnuncio, String descriptionAnuncio, Date dateCreacionAnuncio,
-			Boolean estadoTrabajo, int pagosAnuncio, Mypes mypes, Freelancers freelancers, TipoTrabajo tipoTrabajo,
-			TipoPago tipoPago) {
+			Money pagoAnuncio, Mypes mypes, TipoTrabajo tipoTrabajo) {
 		super();
 		this.idAnuncio = idAnuncio;
 		this.nameAnuncio = nameAnuncio;
 		this.descriptionAnuncio = descriptionAnuncio;
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
-		EstadoTrabajo = estadoTrabajo;
-		this.pagosAnuncio = pagosAnuncio;
+		this.pagoAnuncio = pagoAnuncio;
 		this.mypes = mypes;
-		this.freelancers = freelancers;
 		this.tipoTrabajo = tipoTrabajo;
-		this.tipoPago = tipoPago;
 	}
 
 	public int getIdAnuncio() {
@@ -94,20 +89,12 @@ public class Anuncio {
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 	}
 
-	public Boolean getEstadoTrabajo() {
-		return EstadoTrabajo;
+	public Money getPagoAnuncio() {
+		return pagoAnuncio;
 	}
 
-	public void setEstadoTrabajo(Boolean estadoTrabajo) {
-		EstadoTrabajo = estadoTrabajo;
-	}
-
-	public int getPagosAnuncio() {
-		return pagosAnuncio;
-	}
-
-	public void setPagosAnuncio(int pagosAnuncio) {
-		this.pagosAnuncio = pagosAnuncio;
+	public void setPagoAnuncio(Money pagoAnuncio) {
+		this.pagoAnuncio = pagoAnuncio;
 	}
 
 	public Mypes getMypes() {
@@ -118,14 +105,6 @@ public class Anuncio {
 		this.mypes = mypes;
 	}
 
-	public Freelancers getFreelancers() {
-		return freelancers;
-	}
-
-	public void setFreelancers(Freelancers freelancers) {
-		this.freelancers = freelancers;
-	}
-
 	public TipoTrabajo getTipoTrabajo() {
 		return tipoTrabajo;
 	}
@@ -134,15 +113,6 @@ public class Anuncio {
 		this.tipoTrabajo = tipoTrabajo;
 	}
 
-	public TipoPago getTipoPago() {
-		return tipoPago;
-	}
-
-	public void setTipoPago(TipoPago tipoPago) {
-		this.tipoPago = tipoPago;
-	}
 	
-	
-
 	
 }
