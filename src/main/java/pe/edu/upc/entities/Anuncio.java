@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.javamoney.moneta.Money;
+
 @Entity
 @Table(name = "Anuncio")
 public class Anuncio {
@@ -27,33 +29,17 @@ public class Anuncio {
 	
 	private Date dateCreacionAnuncio;
 	
-	@Column(name = "EstadoTrabajo", nullable = false, length = 01)
-	private Boolean EstadoTrabajo;
-	
-	
-	@Column(name = "pagosAnuncio", nullable = false, length = 60)
-	private int pagosAnuncio;
+	@Column(name = "pagoAnuncio", nullable = false)
+	private Money pagoAnuncio;
 	
 	@ManyToOne
     @JoinColumn(name="idMypes", nullable = false)
     private Mypes mypes;
-
-	
-	@ManyToOne
-    @JoinColumn(name="idFreelancers", nullable = false)
-    private Freelancers freelancers;
 	
 	@ManyToOne
     @JoinColumn(name="idTipoTrabajo", nullable = false)
     private TipoTrabajo tipoTrabajo;
-	
-	@ManyToOne
-    @JoinColumn(name="idTipoPago", nullable = false)
-    private TipoPago tipoPago;
 
-	/**
-	 * 
-	 */
 	public Anuncio() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,27 +21,31 @@ public class Mypes {
 	private String nameEmpresaMypes;
 
 	@Column(name = "rucMypes", nullable = false, length = 15)
-	private int dniFreelancers;
+	private int rucMypes;
 	
 	@Column(name = "nameGerenteMypes", nullable = false, length = 254)
-	private String descriptionFreelancers;
+	private String nameGerenteMypes;
 	
-	@Column(name = "fechaInscripcionMypes", nullable = false, length = 100)
-	private String fechaInscripcionMypes;
+	@Column(name = "fechaInscripcionMypes", nullable = false)
+	private Date fechaInscripcionMypes;
+	
+	@Column(name = "logoMypes", nullable = false, length = 100)
+	private String logoMypes;
 
 	public Mypes() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Mypes(int idMypes, String nameEmpresaMypes, int dniFreelancers, String descriptionFreelancers,
-			String fechaInscripcionMypes) {
+	public Mypes(int idMypes, String nameEmpresaMypes, int rucMypes, String nameGerenteMypes,
+			Date fechaInscripcionMypes, String logoMypes) {
 		super();
 		this.idMypes = idMypes;
 		this.nameEmpresaMypes = nameEmpresaMypes;
-		this.dniFreelancers = dniFreelancers;
-		this.descriptionFreelancers = descriptionFreelancers;
+		this.rucMypes = rucMypes;
+		this.nameGerenteMypes = nameGerenteMypes;
 		this.fechaInscripcionMypes = fechaInscripcionMypes;
+		this.logoMypes = logoMypes;
 	}
 
 	public int getIdMypes() {
@@ -58,28 +64,36 @@ public class Mypes {
 		this.nameEmpresaMypes = nameEmpresaMypes;
 	}
 
-	public int getDniFreelancers() {
-		return dniFreelancers;
+	public int getRucMypes() {
+		return rucMypes;
 	}
 
-	public void setDniFreelancers(int dniFreelancers) {
-		this.dniFreelancers = dniFreelancers;
+	public void setRucMypes(int rucMypes) {
+		this.rucMypes = rucMypes;
 	}
 
-	public String getDescriptionFreelancers() {
-		return descriptionFreelancers;
+	public String getNameGerenteMypes() {
+		return nameGerenteMypes;
 	}
 
-	public void setDescriptionFreelancers(String descriptionFreelancers) {
-		this.descriptionFreelancers = descriptionFreelancers;
+	public void setNameGerenteMypes(String nameGerenteMypes) {
+		this.nameGerenteMypes = nameGerenteMypes;
 	}
 
-	public String getFechaInscripcionMypes() {
+	public Date getFechaInscripcionMypes() {
 		return fechaInscripcionMypes;
 	}
 
-	public void setFechaInscripcionMypes(String fechaInscripcionMypes) {
+	public void setFechaInscripcionMypes(Date fechaInscripcionMypes) {
 		this.fechaInscripcionMypes = fechaInscripcionMypes;
+	}
+
+	public String getLogoMypes() {
+		return logoMypes;
+	}
+
+	public void setLogoMypes(String logoMypes) {
+		this.logoMypes = logoMypes;
 	}
 
 }

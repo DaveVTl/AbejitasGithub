@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,19 +29,26 @@ public class Freelancers {
 	@Column(name = "CVFreelancers", nullable = false, length = 100)
 	private String CVFreelancers;
 
+	@Column(name = "fotoFreelancers", nullable = false, length = 100)
+	private String fotoFreelancers;
+	
+	@Column(name = "fechaInscripcionFreelancers", nullable = false)
+	private Date fechaInscripcionFreelancers;
+	
 	public Freelancers() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
-			String cVFreelancers) {
+			String cVFreelancers, String fotoFreelancers) {
 		super();
 		this.idFreelancers = idFreelancers;
 		this.nameFreelancers = nameFreelancers;
 		this.dniFreelancers = dniFreelancers;
 		this.descriptionFreelancers = descriptionFreelancers;
 		CVFreelancers = cVFreelancers;
+		this.fotoFreelancers = fotoFreelancers;
 	}
 
 	public int getIdFreelancers() {
@@ -81,10 +90,13 @@ public class Freelancers {
 	public void setCVFreelancers(String cVFreelancers) {
 		CVFreelancers = cVFreelancers;
 	}
-	
-	/*
-	@Column(name = "FotoPerfilFreelancers", nullable = false)
-	private bytea FotoPerfilFreelancers;
-	*/
+
+	public String getFotoFreelancers() {
+		return fotoFreelancers;
+	}
+
+	public void setFotoFreelancers(String fotoFreelancers) {
+		this.fotoFreelancers = fotoFreelancers;
+	}
 
 }
