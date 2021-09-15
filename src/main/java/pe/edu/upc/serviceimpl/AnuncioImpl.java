@@ -13,13 +13,13 @@ private IAnuncioDao aDao;
 	@Override
 	public void insert(Anuncio a) {
 		// TODO Auto-generated method stub
-		
+		aDao.insert(a);
 	}
 
 	@Override
 	public List<Anuncio> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return aDao.list();
 	}
 
 
