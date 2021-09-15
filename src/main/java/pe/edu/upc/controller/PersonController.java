@@ -20,11 +20,12 @@ public class PersonController {
 	private IPersonService pService;
 	@Inject
 	private IVaccinationCenterService vService;
+
 //atributos
 	private Person person;
 	private VaccinationCenter vacinationCenter;
-	List<Person> listaPersonas;
-	List<VaccinationCenter> listaVacunatorios;
+	List<Person> listaFreeLancers;
+	List<VaccinationCenter> listaFreeLancers;
 
 	// constructor
 	@PostConstruct
