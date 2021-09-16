@@ -10,12 +10,13 @@ import pe.edu.upc.dao.IAnuncioDao;
 import pe.edu.upc.entities.Anuncio;
 import pe.edu.upc.service.IAnuncioService;
 
-@SuppressWarnings("cdi-ambiguous-name")
 @Named
 @RequestScoped
-public class AnuncioImpl implements IAnuncioService{
-@Inject
-private IAnuncioDao aDao;
+public class AnuncioServiceImpl implements IAnuncioService {
+
+	@Inject
+	private IAnuncioDao aDao;
+
 	@Override
 	public void insert(Anuncio a) {
 		// TODO Auto-generated method stub

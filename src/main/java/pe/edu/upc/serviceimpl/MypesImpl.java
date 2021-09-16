@@ -7,10 +7,11 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.IMypesDao;
 import pe.edu.upc.entities.Mypes;
+import pe.edu.upc.service.IMypesService;
 
 @Named
 @RequestScoped
-public class MypesImpl implements IMypesDao{
+public class MypesImpl implements IMypesService{
 
 private IMypesDao mpDao;
 	@Override

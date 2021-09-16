@@ -7,9 +7,10 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.ITrabajoDao;
 import pe.edu.upc.entities.Trabajo;
+import pe.edu.upc.service.ITrabajoService;
 @RequestScoped
 @Named
-public class TrabajoImpl implements ITrabajoDao{
+public class TrabajoImpl implements ITrabajoService{
 
 private ITrabajoDao tDao;
 	@Override
