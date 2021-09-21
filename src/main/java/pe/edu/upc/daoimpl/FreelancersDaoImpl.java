@@ -12,6 +12,7 @@ import pe.edu.upc.dao.IFreelancersDao;
 import pe.edu.upc.entities.Freelancers;
 
 
+
 public class FreelancersDaoImpl implements IFreelancersDao {
 	
 	@PersistenceContext(unitName = "demoCrudSV61")
@@ -42,6 +43,28 @@ public class FreelancersDaoImpl implements IFreelancersDao {
 			System.out.println("Error al insertar freelancers");
 		}
 		return lista;
+	}
+	
+	@Transactional
+	@Override
+	public void eliminar(int idFreelancer) {
+		Freelancers spec = new Freelancers();
+		try {
+			spec = em.getReference(Freelancers.class, idFreelancer);
+			em.remove(spec);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Transactional
+	@Override
+	public void modificar(Freelancers freelancer) {
+		try {
+			em.merge(freelancer);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	//a
 

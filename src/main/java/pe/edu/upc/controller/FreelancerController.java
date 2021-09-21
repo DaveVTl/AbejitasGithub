@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entities.Freelancers;
+
 import pe.edu.upc.service.IFreelancersService;
 
 @Named
@@ -23,9 +24,9 @@ public class FreelancerController {
 
 	@PostConstruct
 	public void init() {
-		freelancer = new Freelancers();
-		listaFreelancers = new ArrayList<Freelancers>();
-		listaFreelancer();
+		this.freelancer = new Freelancers();
+		this.listaFreelancers = new ArrayList<Freelancers>();
+		this.listaFreelancer();
 	}
 
 	// boton redirigir registro freelancer
@@ -43,7 +44,32 @@ public class FreelancerController {
 	public void listaFreelancer() {
 		listaFreelancers = fService.list();
 	}
+	//boton de eliminar
+	public void eliminar(Freelancers medic) {
+		try {
+			fService.eliminar(medic.getIdFreelancers());
+			listaFreelancer();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	//boton de modificar
+	public void modificar() {
+		try {
+			fService.modificar(this.freelancer);
+			this.listaFreelancer();
 
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+
+	public String Modifpre(Freelancers free) {
+		this.setFreelancer(free);
+		return "freelancersMod.xhtml";
+
+	}
 	
 	//getters
 	public IFreelancersService getfService() {

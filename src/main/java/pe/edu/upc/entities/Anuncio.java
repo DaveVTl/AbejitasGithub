@@ -16,7 +16,7 @@ import org.javamoney.moneta.Money;
 @Entity
 @Table(name = "Anuncio")
 public class Anuncio {
-//a
+//aa
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAnuncio;

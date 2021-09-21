@@ -10,4 +10,8 @@ public interface IFreelancersDao {
 	public void insert(Freelancers f);
 
 	public List<Freelancers> list();
+	
+	public void eliminar(int idFreelancer);
+	
+	public void modificar(Freelancers freelancer);
 }

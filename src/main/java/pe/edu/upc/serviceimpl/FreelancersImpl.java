@@ -29,7 +29,15 @@ private IFreelancersDao fDao;
 		return fDao.list();
 	}
 
+	@Override
+	public void eliminar(int idFreelancer) {
+		fDao.eliminar(idFreelancer);
+	}
 
-
+	@Override
+	public void modificar(Freelancers freelancer) {
+		fDao.modificar(freelancer);		
+	}
+	
 
 }

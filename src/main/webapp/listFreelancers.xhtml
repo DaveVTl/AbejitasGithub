@@ -54,12 +54,21 @@
 							<p:column headerText="Foto" sortBy="#{f.fotoFreelancers}">
 								<h:outputText value="#{f.fotoFreelancers}" />
 							</p:column>
-							
+
 							<p:column headerText="Fecha de Integracion"
 								sortBy="#{f.fechaInscripcionFreelancers}">
 								<h:outputText value="#{f.fechaInscripcionFreelancers}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listFreelancer" value="Eliminar"
+									actionListener="#{freelancerController.eliminar(f)}"></h:commandLink>
+							</p:column>
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink value="Modificar"
+									action="#{freelancerController.Modifpre(f)}" style="color:blue;" />
 							</p:column>
 
 						</p:dataTable>
