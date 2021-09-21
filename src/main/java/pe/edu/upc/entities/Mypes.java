@@ -26,7 +26,7 @@ public class Mypes {
 	@Column(name = "nameGerenteMypes", nullable = false, length = 254)
 	private String nameGerenteMypes;
 	
-	@Column(name = "fechaInscripcionMypes", nullable = false)
+	
 	private Date fechaInscripcionMypes;
 	
 	@Column(name = "logoMypes", nullable = false, length = 100)

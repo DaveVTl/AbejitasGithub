@@ -32,7 +32,6 @@ public class Freelancers {
 	@Column(name = "fotoFreelancers", nullable = false, length = 100)
 	private String fotoFreelancers;
 	
-	@Column(name = "fechaInscripcionFreelancers", nullable = false)
 	private Date fechaInscripcionFreelancers;
 	
 	public Freelancers() {
@@ -97,6 +96,14 @@ public class Freelancers {
 
 	public void setFotoFreelancers(String fotoFreelancers) {
 		this.fotoFreelancers = fotoFreelancers;
+	}
+
+	public Date getFechaInscripcionFreelancers() {
+		return fechaInscripcionFreelancers;
+	}
+
+	public void setFechaInscripcionFreelancers(Date fechaInscripcionFreelancers) {
+		this.fechaInscripcionFreelancers = fechaInscripcionFreelancers;
 	}
 
 }

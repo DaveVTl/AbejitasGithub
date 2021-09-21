@@ -35,7 +35,7 @@ public class MypesDaoImpl implements IMypesDao {
 		List<Mypes> lista = new ArrayList<Mypes>();
 		try {
 
-			Query q = em.createQuery("select mp from Mypes mp");
+			Query q = em.createQuery("select m from Mypes m");
 			lista = (List<Mypes>) q.getResultList();
 		} catch (Exception e) {
 			System.out.println("Error al listar mypes");

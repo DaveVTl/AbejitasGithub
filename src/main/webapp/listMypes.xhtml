@@ -11,11 +11,11 @@
 
 
 	<ui:define name="title">
-        .:Listado de Personas:.
+        .:Listado de Mypes:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Personas </span>
+		<span>Mypes</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -23,51 +23,50 @@
 		<h:form>
 			<div class="row">
 				<p:commandButton value="Nuevo"
-					action="#{personController.newPerson()}"
-					styleClass="btn btn-danger" ajax="false" />
+					action="#{mypesController.newMypes()}"
+					styleClass="btn btn-primary" ajax="false" />
 			</div>
-
 
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 
-						<p:dataTable id="lstPerson" var="p"
-							value="#{personController.listaPersonas}" paginator="true"
+						<p:dataTable id="lstMypes" var="m"
+							value="#{mypesController.listaMypes}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{p.idPerson}">
-								<h:outputText value="#{p.idPerson}" />
+							<p:column headerText="Id" sortBy="#{m.idMypes}">
+								<h:outputText value="#{m.idMypes}" />
 							</p:column>
 
-							<p:column headerText="Persona" sortBy="#{p.namePerson}">
-								<h:outputText value="#{p.namePerson}" />
+							<p:column headerText="Mype" sortBy="#{m.nameEmpresaMypes}">
+								<h:outputText value="#{m.nameEmpresaMypes}" />
 							</p:column>
 
-							<p:column headerText="DNI" sortBy="#{p.dniPerson}">
-								<h:outputText value="#{p.dniPerson}" />
+							<p:column headerText="Ruc" sortBy="#{m.rucMypes}">
+								<h:outputText value="#{m.rucMypes}" />
 							</p:column>
 
-							<p:column headerText="Dirección" sortBy="#{p.adressPerson}">
-								<h:outputText value="#{p.adressPerson}" />
+							<p:column headerText="Nombre de Gerente"
+								sortBy="#{m.nameGerenteMypes}">
+								<h:outputText value="#{m.nameGerenteMypes}" />
 							</p:column>
 
-
-							<p:column headerText="Fecha de nacimiento"
-								sortBy="#{p.birthDatePerson}">
-								<h:outputText value="#{p.birthDatePerson}">
-									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC"></f:convertDateTime>
+							<p:column headerText="Fecha de Integracion"
+								sortBy="#{m.fechaInscripcionMypes}">
+								<h:outputText value="#{m.fechaInscripcionMypes}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
 							</p:column>
-
-							<p:column headerText="Vacunatorio"
-								sortBy="#{p.vaccinationCenter.nameVaccinationCenter}">
-								<h:outputText
-									value="#{p.vaccinationCenter.nameVaccinationCenter}" />
+							
+							<p:column headerText="logoMypes"
+								sortBy="#{m.logoMypes}">
+								<h:outputText value="#{m.logoMypes}" />
 							</p:column>
+
 
 						</p:dataTable>
 					</div>

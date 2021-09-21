@@ -25,22 +25,22 @@ public class FreelancerController {
 	public void init() {
 		freelancer = new Freelancers();
 		listaFreelancers = new ArrayList<Freelancers>();
-		listTipoTrabajo();
+		listaFreelancer();
 	}
 
 	// boton redirigir registro freelancer
 	public String newFreelancer() {
 		this.setFreelancer(new Freelancers());
-		return "freelancer.xhtml";
+		return "freelancers.xhtml";
 	}
 
 	public void RegistrarFreelancer() {
 		fService.insert(freelancer);
-		listTipoTrabajo();
+		listaFreelancer();
 	}
 
 	// boton ver lista de freelancers
-	public void listTipoTrabajo() {
+	public void listaFreelancer() {
 		listaFreelancers = fService.list();
 	}
 
