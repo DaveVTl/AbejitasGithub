@@ -23,7 +23,7 @@
 		<h:form>
 			<div class="row">
 				<p:commandButton value="Nuevo"
-					action="#{personController.newPerson()}"
+					action="#{anuncioController.newAnuncio()}"
 					styleClass="btn btn-danger" ajax="false" />
 			</div>
 
@@ -32,41 +32,44 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 
-						<p:dataTable id="lstPerson" var="p"
-							value="#{personController.listaPersonas}" paginator="true"
+						<p:dataTable id="lstAnuncio" var="a"
+							value="#{personController.listaAnuncios}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{p.idPerson}">
-								<h:outputText value="#{p.idPerson}" />
+							<p:column headerText="Id" sortBy="#{a.idAnuncio}">
+								<h:outputText value="#{a.idAnuncio}" />
 							</p:column>
 
-							<p:column headerText="Persona" sortBy="#{p.namePerson}">
-								<h:outputText value="#{p.namePerson}" />
+							<p:column headerText="Nombre" sortBy="#{a.nameAnuncio}">
+								<h:outputText value="#{a.nameAnuncio}" />
+							</p:column>
+							
+							<p:column headerText="Mype" sortBy="#{a.nameMype}">
+								<h:outputText value="#{a.nameMype}" />
 							</p:column>
 
-							<p:column headerText="DNI" sortBy="#{p.dniPerson}">
-								<h:outputText value="#{p.dniPerson}" />
+							<p:column headerText="Tipo" sortBy="#{a.tipoAnuncio}">
+								<h:outputText value="#{a.tipoAnuncio}" />
 							</p:column>
 
-							<p:column headerText="Dirección" sortBy="#{p.adressPerson}">
-								<h:outputText value="#{p.adressPerson}" />
+							<p:column headerText="Descripcion" sortBy="#{a.descripcionAnuncio}">
+								<h:outputText value="#{a.descripcionAnuncio}" />
 							</p:column>
 
-
-							<p:column headerText="Fecha de nacimiento"
-								sortBy="#{p.birthDatePerson}">
-								<h:outputText value="#{p.birthDatePerson}">
+							<p:column headerText="Fecha de Registro"
+								sortBy="#{a.fechaRegistro}">
+								<h:outputText value="#{a.fechaRegistro}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC"></f:convertDateTime>
 								</h:outputText>
 							</p:column>
 
-							<p:column headerText="Vacunatorio"
-								sortBy="#{p.vaccinationCenter.nameVaccinationCenter}">
+							<p:column headerText="Anuncio"
+								sortBy="#{p.Anuncio.nameAnuncio}">
 								<h:outputText
-									value="#{p.vaccinationCenter.nameVaccinationCenter}" />
+									value="#{p.vAnuncio.nameAnuncio}" />
 							</p:column>
 
 						</p:dataTable>
