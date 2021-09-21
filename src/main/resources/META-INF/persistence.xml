@@ -13,6 +13,7 @@
 		<class>pe.edu.upc.entities.Anuncio</class>
 		<class>pe.edu.upc.entities.Trabajo</class>
 		<class>pe.edu.upc.entities.Reviews</class>
+		<class>pe.edu.upc.entities.Avances</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
