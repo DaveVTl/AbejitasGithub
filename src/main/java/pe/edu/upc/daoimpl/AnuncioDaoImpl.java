@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IAnuncioDao;
 import pe.edu.upc.entities.Anuncio;
+import pe.edu.upc.entities.Freelancers;
 
 public class AnuncioDaoImpl implements IAnuncioDao {
 
@@ -38,5 +39,26 @@ public class AnuncioDaoImpl implements IAnuncioDao {
 		}
 		return lista;
 	}
+	
+	@Transactional
+	@Override
+	public void eliminar(int idAnuncio) {
+		Anuncio spec = new Anuncio();
+		try {
+			spec = em.getReference(Anuncio.class, idAnuncio);
+			em.remove(spec);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
+	@Transactional
+	@Override
+	public void modificar(Anuncio anuncio) {
+		try {
+			em.merge(anuncio);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

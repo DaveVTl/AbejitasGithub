@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entities.Anuncio;
+import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 import pe.edu.upc.entities.TipoTrabajo;
 import pe.edu.upc.service.IAnuncioService;
@@ -45,6 +46,8 @@ public class AnuncioController {
 		//this.listVaccination(); - - Lista de Anuncios por mypes
 	}
 	
+	
+	
 	//boton anuncio nuevo
 	public String newAnuncio() {
 		this.setAnuncio(new Anuncio());
@@ -56,11 +59,36 @@ public class AnuncioController {
 		aService.insert(anuncio);
 	}
 	
+	public void modificar() {
+		try {
+			aService.modificar(this.anuncio);
+			this.listaAnuncios();
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	private void listaAnuncios() {
+		// TODO Auto-generated method stub
+		listaAnuncios = aService.list();
+	}
+
+
+
+	public void eliminar(Freelancers medic) {
+		try {
+			aService.eliminar(medic.getIdFreelancers());
+			listaAnuncios();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+
 	//boton ver lista de tipos de  trabajos
 	public void listTipoTrabajo() {
 		listaTipoTrabajo=ttService.list();
 	}
-	
 	
 	//getters and setters
 
