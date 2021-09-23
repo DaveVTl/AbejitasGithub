@@ -55,10 +55,26 @@ public class AnuncioController {
 		return "anuncio.xhtml";
 	}
 	
+	public void RegistrarAnuncior() {
+		aService.insert(anuncio);
+		listaAnuncios();
+	}
+	
 	public void CrearAnuncio() {
 		aService.insert(anuncio);
 	}
+	//boton de eliminar
 	
+	public void eliminar(Anuncio anuncio) {
+		try {
+			aService.eliminar(anuncio.getIdAnuncio());
+			listaAnuncios();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	//boton de modificar
 	public void modificar() {
 		try {
 			aService.modificar(this.anuncio);
@@ -75,16 +91,12 @@ public class AnuncioController {
 	}
 
 
+	public String Modifpre(Anuncio anuncio) {
+		this.setAnuncio(anuncio);
+		return "anuncioMod.xhtml";
 
-	public void eliminar(Freelancers medic) {
-		try {
-			aService.eliminar(medic.getIdFreelancers());
-			listaAnuncios();
-		} catch (Exception e) {
-			e.getMessage();
-		}
 	}
-
+	
 	//boton ver lista de tipos de  trabajos
 	public void listTipoTrabajo() {
 		listaTipoTrabajo=ttService.list();

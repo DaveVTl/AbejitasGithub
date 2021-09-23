@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IMypesDao;
+import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 
 public class MypesDaoImpl implements IMypesDao {
@@ -43,4 +44,25 @@ public class MypesDaoImpl implements IMypesDao {
 		return lista;
 	}
 
+	@Transactional
+	@Override
+	public void eliminar(int idMypes) {
+		Mypes spec = new Mypes();
+		try {
+			spec = em.getReference(Mypes.class, idMypes);
+			em.remove(spec);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	@Transactional
+	@Override
+	public void modificar(Mypes mypes) {
+		try {
+			em.merge(mypes);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }
