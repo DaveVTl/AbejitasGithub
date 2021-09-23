@@ -1,18 +1,26 @@
 package pe.edu.upc.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "Freelancers")
-public class Freelancers {
+public class Freelancers implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFreelancers;
@@ -34,22 +42,9 @@ public class Freelancers {
 	
 	private Date fechaInscripcionFreelancers;
 	
-	public Freelancers() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
-			String cVFreelancers, String fotoFreelancers) {
-		super();
-		this.idFreelancers = idFreelancers;
-		this.nameFreelancers = nameFreelancers;
-		this.dniFreelancers = dniFreelancers;
-		this.descriptionFreelancers = descriptionFreelancers;
-		CVFreelancers = cVFreelancers;
-		this.fotoFreelancers = fotoFreelancers;
-	}
-
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "freelancer")
+	private UsuarioFreelancer usuario;
+	
 	public int getIdFreelancers() {
 		return idFreelancers;
 	}
