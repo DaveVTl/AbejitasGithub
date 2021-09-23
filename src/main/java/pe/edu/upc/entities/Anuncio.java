@@ -29,8 +29,8 @@ public class Anuncio {
 	
 	private Date dateCreacionAnuncio;
 	
-	@Column(name = "pagoAnuncio", nullable = false)
-	private Money pagoAnuncio;
+	@Column(name = "pagoAnuncio", nullable = false, length = 254)
+	private String pagoAnuncio;
 	
 	@ManyToOne
     @JoinColumn(name="idMypes", nullable = false)
@@ -46,7 +46,7 @@ public class Anuncio {
 	}
 
 	public Anuncio(int idAnuncio, String nameAnuncio, String descriptionAnuncio, Date dateCreacionAnuncio,
-			Money pagoAnuncio, Mypes mypes, TipoTrabajo tipoTrabajo) {
+			String pagoAnuncio, Mypes mypes, TipoTrabajo tipoTrabajo) {
 		super();
 		this.idAnuncio = idAnuncio;
 		this.nameAnuncio = nameAnuncio;
@@ -89,11 +89,11 @@ public class Anuncio {
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 	}
 
-	public Money getPagoAnuncio() {
+	public String getPagoAnuncio() {
 		return pagoAnuncio;
 	}
 
-	public void setPagoAnuncio(Money pagoAnuncio) {
+	public void setPagoAnuncio(String pagoAnuncio) {
 		this.pagoAnuncio = pagoAnuncio;
 	}
 
