@@ -25,10 +25,10 @@
 				value="#{mypesController.mypes.idMypes}"
 				required="true" />
 
-			<h:outputLabel for="nameEmpresaMypes" value="Nombre Mypes"
+			<h:outputLabel for="n" value="Nombre Mypes "
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="nameMypes"
+			<p:inputText autocomplete="off" id="nameEmpresaMypes"
 				styleClass="form-control"
 				value="#{mypesController.mypes.nameEmpresaMypes}"
 				maxlength="30" required="true" />
@@ -37,14 +37,14 @@
 			<h:outputLabel for="rucMypes" value="Ruc"
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="dniFreelancers"
+			<p:inputText autocomplete="off" id="rucMypes"
 				styleClass="form-control"
 				value="#{mypesController.mypes.rucMypes}"
 				maxlength="30" required="true">
 			</p:inputText>
 
 			<h:outputLabel for="nameGerenteMypes"
-				value="Nombre del Gerente" styleClass="control-label" />
+				value="Nombre Gerente" styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="nameGerenteMypes"
 				styleClass="form-control"
@@ -54,14 +54,14 @@
 
 			<h:outputLabel for="logoMypes" value="Link del Logo"
 				styleClass="control-label" />
-
 			<p:inputText autocomplete="off" id="logoMypes"
 				styleClass="form-control"
 				value="#{mypesController.mypes.logoMypes}"
 				maxlength="30" required="true">
 			</p:inputText>
 
-			<h:outputLabel for="date" value="Fecha de Inscripcion"
+
+			<h:outputLabel for="fechaInscripcionMypes" value="Fecha de Inscripcion"
 				styleClass="control-label" />
 
 
@@ -74,12 +74,14 @@
 
 			<br />
 			<p:commandButton value="Grabar"
-				actionListener="#{mypesController.RegistrarMypes()}"
+				actionListener="#{mypesController.modificar()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listMypes?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
 				action="listMypes?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
+
+
 
 		</h:form>
 	</ui:define>

@@ -8,6 +8,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 import pe.edu.upc.service.IMypesService;
 
@@ -25,7 +26,7 @@ public class MypesController {
 	public void init() {
 		mypes = new Mypes();
 		listaMypes = new ArrayList<Mypes>();
-		listarMypes();
+		listaMypes();
 	}
 
 	// boton redirigir registro freelancer
@@ -34,16 +35,43 @@ public class MypesController {
 		return "mypes.xhtml";
 	}
 
-	public void RegistrarFreelancer() {
+	public void RegistrarMypes() {
 		mService.insert(mypes);
-		listarMypes();
+		listaMypes();
 	}
 
 	// boton ver lista de freelancers
-	public void listarMypes() {
+	public void listaMypes() {
 		listaMypes = mService.list();
 	}
+	
+	//boton de eliminar
+	public void eliminar(Mypes mypes) {
+		try {
+			mService.eliminar(mypes.getIdMypes());
+			listaMypes();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
 
+	//boton de modificar
+	public void modificar() {
+		try {
+			mService.modificar(this.mypes);
+			this.listaMypes();
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	public String Modifmyp(Mypes mypes) {
+		this.setMypes(mypes);
+		return "mypesMod.xhtml";
+
+	}
+	
 	public IMypesService getmService() {
 		return mService;
 	}

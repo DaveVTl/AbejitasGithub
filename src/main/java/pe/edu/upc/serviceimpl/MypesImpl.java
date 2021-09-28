@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.IMypesDao;
+import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 import pe.edu.upc.service.IMypesService;
 
@@ -30,4 +31,13 @@ private IMypesDao mpDao;
 		return mpDao.list();
 	}
 
+	@Override
+	public void eliminar(int idFreelancer) {
+		mpDao.eliminar(idFreelancer);
+	}
+
+	@Override
+	public void modificar(Mypes mypes) {
+		mpDao.modificar(mypes);	
+}
 }
