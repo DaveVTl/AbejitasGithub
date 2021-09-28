@@ -1,6 +1,7 @@
 package pe.edu.upc.entities;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.javamoney.moneta.Money;
 
 @Entity
 @Table(name = "Trabajo")
@@ -26,19 +25,18 @@ public class Trabajo {
 
 	@Column(name = "descriptionTrabajo", nullable = false, length = 254)
 	private String descriptionTrabajo;
-	
+
 	@Column(name = "EstadoTrabajo", nullable = false, length = 10)
 	private String EstadoTrabajo;
-	
+
 	private Date dateCreacionAnuncio;
-	
+
 	@Column(name = "nuevoPagoTrabajo", nullable = false)
-	private Money nuevoPagoTrabajo;
+	private double nuevoPagoTrabajo;
 
 	@ManyToOne
-    @JoinColumn(name="idFreelancers", nullable = false)
-    private Freelancers freelancers;
-	
+	@JoinColumn(name = "idFreelancers", nullable = false)
+	private Freelancers freelancers;
 
 	public Trabajo() {
 		super();
@@ -46,7 +44,7 @@ public class Trabajo {
 	}
 
 	public Trabajo(int idTrabajo, String nameTrabajo, String descriptionTrabajo, String estadoTrabajo,
-			Date dateCreacionAnuncio, Money nuevoPagoTrabajo, Freelancers freelancers, Anuncio anuncio,
+			Date dateCreacionAnuncio, double nuevoPagoTrabajo, Freelancers freelancers, Anuncio anuncio,
 			TipoPago tipoPago) {
 		super();
 		this.idTrabajo = idTrabajo;
@@ -98,11 +96,11 @@ public class Trabajo {
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 	}
 
-	public Money getNuevoPagoTrabajo() {
+	public double getNuevoPagoTrabajo() {
 		return nuevoPagoTrabajo;
 	}
 
-	public void setNuevoPagoTrabajo(Money nuevoPagoTrabajo) {
+	public void setNuevoPagoTrabajo(double nuevoPagoTrabajo) {
 		this.nuevoPagoTrabajo = nuevoPagoTrabajo;
 	}
 
@@ -114,7 +112,29 @@ public class Trabajo {
 		this.freelancers = freelancers;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(EstadoTrabajo, dateCreacionAnuncio, descriptionTrabajo, freelancers, idTrabajo, nameTrabajo,
+				nuevoPagoTrabajo);
+	}
 
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Trabajo other = (Trabajo) obj;
+		return Objects.equals(EstadoTrabajo, other.EstadoTrabajo)
+				&& Objects.equals(dateCreacionAnuncio, other.dateCreacionAnuncio)
+				&& Objects.equals(descriptionTrabajo, other.descriptionTrabajo)
+				&& Objects.equals(freelancers, other.freelancers) && idTrabajo == other.idTrabajo
+				&& Objects.equals(nameTrabajo, other.nameTrabajo)
+				&& Double.doubleToLongBits(nuevoPagoTrabajo) == Double.doubleToLongBits(other.nuevoPagoTrabajo);
+	}
 	
+	
+
 }

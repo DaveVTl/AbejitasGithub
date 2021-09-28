@@ -1,6 +1,7 @@
 package pe.edu.upc.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,6 +34,31 @@ public class UsuarioFreelancer implements Serializable {
 
 	@Column(name = "state", nullable = false, length = 1)
 	private String state;
+
+	
+	/**
+	 * 
+	 */
+	public UsuarioFreelancer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param id
+	 * @param freelancer
+	 * @param username
+	 * @param password
+	 * @param state
+	 */
+	public UsuarioFreelancer(int id, Freelancers freelancer, String username, String password, String state) {
+		super();
+		this.id = id;
+		this.freelancer = freelancer;
+		this.username = username;
+		this.password = password;
+		this.state = state;
+	}
 
 	public int getId() {
 		return id;
@@ -72,6 +98,25 @@ public class UsuarioFreelancer implements Serializable {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(freelancer, id, password, state, username);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsuarioFreelancer other = (UsuarioFreelancer) obj;
+		return Objects.equals(freelancer, other.freelancer) && id == other.id
+				&& Objects.equals(password, other.password) && Objects.equals(state, other.state)
+				&& Objects.equals(username, other.username);
 	}
 
 

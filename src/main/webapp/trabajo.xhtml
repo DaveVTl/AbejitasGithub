@@ -44,25 +44,27 @@
 			<h:outputLabel for="EstadoTrabajo" value="Estado Trabajo"
 				styleClass="control-label" />
 
-			<p:outputLabel for="@next" value="Basic"/>
-                <p:selectOneMenu id="option" value="#{trabajoController.trabajo.estadoTrabajo}">
-                    <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItem itemLabel="En Progreso" itemValue="En Progreso"/>
-                    <f:selectItem itemLabel="Retrasado" itemValue="Retrasado"/>
-                    <f:selectItem itemLabel="Cancelado" itemValue="Cancelado"/>
-                    <f:selectItem itemLabel="Completado" itemValue="Compeltado"/>
-                 
-                </p:selectOneMenu>
+			<p:outputLabel for="@next" value="Basic" />
+			<p:selectOneMenu id="option"
+				value="#{trabajoController.trabajo.estadoTrabajo}">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItem itemLabel="En Progreso" itemValue="En Progreso" />
+				<f:selectItem itemLabel="Retrasado" itemValue="Retrasado" />
+				<f:selectItem itemLabel="Cancelado" itemValue="Cancelado" />
+				<f:selectItem itemLabel="Completado" itemValue="Compeltado" />
+
+			</p:selectOneMenu>
 
 
 			<h:outputLabel for="nuevoPagoTrabajo" value="Pago"
 				styleClass="control-label" />
-			
+
 			<p:inputText autocomplete="off" id="nuevoPagoTrabajo"
 				styleClass="form-control"
-				value="#{trabajoController.trabajo.nuevoPagoTrabajo}" maxlength="60"
-				required="true" />
-		
+				value="#{trabajoController.trabajo.nuevoPagoTrabajo}"
+				maxlength="255" required="true" />
+
+
 
 
 			<h:outputLabel for="dateCreacionAnuncio" value="Fecha de Creación"
@@ -73,27 +75,25 @@
 
 			</p:calendar>
 
-
-			<p:outputLabel for="cbofreelancers" value="Freelancer"
+			<br />
+			<p:outputLabel for="cbofreelancers" value="Freelancers"
 				styleClass="control-label" />
 
 			<p:selectOneMenu id="cbofreelancers"
 				value="#{trabajoController.trabajo.freelancers}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{freelancerController.listaFreelancers}"
-					var="f" itemLabel="#{f.nameFreelancers}" itemValue="#{f}" />
+				<f:selectItems value="#{trabajoController.listaFreelancerss}"
+					var="f" itemLabel="#{f.idFreelancers}" itemValue="#{f}" />
 			</p:selectOneMenu>
-
-
 			<br />
 
 
 			<p:commandButton value="Grabar"
 				actionListener="#{trabajoController.CrearTrabajo()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listTrabajo?faces-redirect=true" />
+				action="listTrabajos?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listTrabajo?faces-redirect=true" immediate="true"
+				action="listTrabajos?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 

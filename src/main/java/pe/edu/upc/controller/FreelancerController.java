@@ -44,7 +44,8 @@ public class FreelancerController {
 	public void listaFreelancer() {
 		listaFreelancers = fService.list();
 	}
-	//boton de eliminar
+
+	// boton de eliminar
 	public void eliminar(Freelancers medic) {
 		try {
 			fService.eliminar(medic.getIdFreelancers());
@@ -53,7 +54,8 @@ public class FreelancerController {
 			e.getMessage();
 		}
 	}
-	//boton de modificar
+
+	// boton de modificar
 	public void modificar() {
 		try {
 			fService.modificar(this.freelancer);
@@ -63,15 +65,14 @@ public class FreelancerController {
 			e.getMessage();
 		}
 	}
-	
 
 	public String Modifpre(Freelancers free) {
 		this.setFreelancer(free);
 		return "freelancersMod.xhtml";
 
 	}
-	
-	//getters
+
+	// getters
 	public IFreelancersService getfService() {
 		return fService;
 	}

@@ -2,6 +2,7 @@ package pe.edu.upc.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,13 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "Freelancers")
-public class Freelancers implements Serializable{
+public class Freelancers implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFreelancers;
@@ -30,21 +30,52 @@ public class Freelancers implements Serializable{
 
 	@Column(name = "dniFreelancers", nullable = false, length = 15)
 	private int dniFreelancers;
-	
+
 	@Column(name = "descriptionFreelancers", nullable = false, length = 254)
 	private String descriptionFreelancers;
-	
+
 	@Column(name = "CVFreelancers", nullable = false, length = 100)
 	private String CVFreelancers;
 
 	@Column(name = "fotoFreelancers", nullable = false, length = 100)
 	private String fotoFreelancers;
-	
+
 	private Date fechaInscripcionFreelancers;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "freelancer")
 	private UsuarioFreelancer usuario;
-	
+
+	/**
+	 * @param idFreelancers
+	 * @param nameFreelancers
+	 * @param dniFreelancers
+	 * @param descriptionFreelancers
+	 * @param cVFreelancers
+	 * @param fotoFreelancers
+	 * @param fechaInscripcionFreelancers
+	 * @param usuario
+	 */
+	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
+			String cVFreelancers, String fotoFreelancers, Date fechaInscripcionFreelancers, UsuarioFreelancer usuario) {
+		super();
+		this.idFreelancers = idFreelancers;
+		this.nameFreelancers = nameFreelancers;
+		this.dniFreelancers = dniFreelancers;
+		this.descriptionFreelancers = descriptionFreelancers;
+		CVFreelancers = cVFreelancers;
+		this.fotoFreelancers = fotoFreelancers;
+		this.fechaInscripcionFreelancers = fechaInscripcionFreelancers;
+		this.usuario = usuario;
+	}
+
+	/**
+	 * 
+	 */
+	public Freelancers() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdFreelancers() {
 		return idFreelancers;
 	}
@@ -99,6 +130,29 @@ public class Freelancers implements Serializable{
 
 	public void setFechaInscripcionFreelancers(Date fechaInscripcionFreelancers) {
 		this.fechaInscripcionFreelancers = fechaInscripcionFreelancers;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CVFreelancers, descriptionFreelancers, dniFreelancers, fechaInscripcionFreelancers,
+				fotoFreelancers, idFreelancers, nameFreelancers, usuario);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Freelancers other = (Freelancers) obj;
+		return Objects.equals(CVFreelancers, other.CVFreelancers)
+				&& Objects.equals(descriptionFreelancers, other.descriptionFreelancers)
+				&& dniFreelancers == other.dniFreelancers
+				&& Objects.equals(fechaInscripcionFreelancers, other.fechaInscripcionFreelancers)
+				&& Objects.equals(fotoFreelancers, other.fotoFreelancers) && idFreelancers == other.idFreelancers
+				&& Objects.equals(nameFreelancers, other.nameFreelancers) && Objects.equals(usuario, other.usuario);
 	}
 
 }

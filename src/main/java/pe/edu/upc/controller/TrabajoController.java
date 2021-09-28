@@ -28,16 +28,17 @@ public class TrabajoController {
 	private Freelancers f;
 	
 	List<Trabajo>listaTrabajos;
-	List<Freelancers>listaFreelancers;
+	List<Freelancers>listaFreelancerss;
 	
 	@PostConstruct
 	public void init() {
 		this.listaTrabajos = new ArrayList<Trabajo>();
 		this.trabajo = new Trabajo();
-		this.listaFreelancers = new ArrayList<Freelancers>();
+		this.listaFreelancerss = new ArrayList<Freelancers>();
 		this.f = new Freelancers();
 		this.listTrabajo(); //- - - Lista de Tipos de Trabajo
-		this.listFreelancers(); //- - Lista de Anuncios por mypes
+		this.listFreelancerss(); //- - Lista de Anuncios por mypes
+	
 	}
 	
 	//boton anuncio nuevo
@@ -47,13 +48,11 @@ public class TrabajoController {
 		return "trabajo.xhtml";/////
 	}
 	
-	public void RegistrarTrabajo() {
-		tService.insert(trabajo);
-		listTrabajo();
-	}
 	
 	public void CrearTrabajo() {
 		tService.insert(trabajo);
+		listTrabajo();
+		
 	}
 	
 	//boton de eliminar
@@ -101,11 +100,21 @@ public class TrabajoController {
 	
 	//boton ver lista de tipos de  trabajos
 	public void listTrabajo() {
-		listaTrabajos=tService.list();
+		try {
+			listaTrabajos=tService.list();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		
 	}
 	
-	public void listFreelancers() {
-		listaFreelancers=fService.list();
+	public void listFreelancerss() {
+		
+		try {
+			listaFreelancerss=fService.list();
+		} catch (Exception e) {
+			e.getMessage();
+		}
 	}
 
 	
@@ -171,14 +180,14 @@ public class TrabajoController {
 
 
 
-	public List<Freelancers> getListaFreelancers() {
-		return listaFreelancers;
+	public List<Freelancers> getListaFreelancerss() {
+		return listaFreelancerss;
 	}
 
 
 
-	public void setListaFreelancers(List<Freelancers> listaFreelancers) {
-		this.listaFreelancers = listaFreelancers;
+	public void setListaFreelancerss(List<Freelancers> listaFreelancerss) {
+		this.listaFreelancerss = listaFreelancerss;
 	}
 	
 	
