@@ -39,14 +39,7 @@ public class Trabajo {
     @JoinColumn(name="idFreelancers", nullable = false)
     private Freelancers freelancers;
 	
-	@ManyToOne
-    @JoinColumn(name="idAnuncio", nullable = false)
-    private Anuncio anuncio;
 	
-	@ManyToOne
-    @JoinColumn(name="idTipoPago", nullable = false)
-    private TipoPago tipoPago;
-
 	public Trabajo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,12 +52,10 @@ public class Trabajo {
 		this.idTrabajo = idTrabajo;
 		this.nameTrabajo = nameTrabajo;
 		this.descriptionTrabajo = descriptionTrabajo;
-		EstadoTrabajo = estadoTrabajo;
+		this.EstadoTrabajo = estadoTrabajo;
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 		this.nuevoPagoTrabajo = nuevoPagoTrabajo;
 		this.freelancers = freelancers;
-		this.anuncio = anuncio;
-		this.tipoPago = tipoPago;
 	}
 
 	public int getIdTrabajo() {
@@ -123,21 +114,6 @@ public class Trabajo {
 		this.freelancers = freelancers;
 	}
 
-	public Anuncio getAnuncio() {
-		return anuncio;
-	}
-
-	public void setAnuncio(Anuncio anuncio) {
-		this.anuncio = anuncio;
-	}
-
-	public TipoPago getTipoPago() {
-		return tipoPago;
-	}
-
-	public void setTipoPago(TipoPago tipoPago) {
-		this.tipoPago = tipoPago;
-	}
 
 	
 }
