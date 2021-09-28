@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entities.Anuncio;
-import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 import pe.edu.upc.entities.TipoTrabajo;
 import pe.edu.upc.service.IAnuncioService;

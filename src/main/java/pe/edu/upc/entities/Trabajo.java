@@ -39,7 +39,7 @@ public class Trabajo {
     @JoinColumn(name="idFreelancers", nullable = false)
     private Freelancers freelancers;
 	
-	
+
 	public Trabajo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -52,7 +52,7 @@ public class Trabajo {
 		this.idTrabajo = idTrabajo;
 		this.nameTrabajo = nameTrabajo;
 		this.descriptionTrabajo = descriptionTrabajo;
-		this.EstadoTrabajo = estadoTrabajo;
+		EstadoTrabajo = estadoTrabajo;
 		this.dateCreacionAnuncio = dateCreacionAnuncio;
 		this.nuevoPagoTrabajo = nuevoPagoTrabajo;
 		this.freelancers = freelancers;
@@ -113,6 +113,7 @@ public class Trabajo {
 	public void setFreelancers(Freelancers freelancers) {
 		this.freelancers = freelancers;
 	}
+
 
 
 	

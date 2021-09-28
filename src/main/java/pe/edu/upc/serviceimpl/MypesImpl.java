@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.IMypesDao;
-import pe.edu.upc.entities.Freelancers;
 import pe.edu.upc.entities.Mypes;
 import pe.edu.upc.service.IMypesService;
 

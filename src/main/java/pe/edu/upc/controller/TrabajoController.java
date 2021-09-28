@@ -44,7 +44,7 @@ public class TrabajoController {
 	public String newTrabajo() {
 		this.setTrabajo(new Trabajo());
 		this.listTrabajo();
-		return "anuncio.xhtml";/////
+		return "trabajo.xhtml";/////
 	}
 	
 	public void RegistrarTrabajo() {

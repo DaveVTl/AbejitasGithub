@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition template="master.xhtml">
+
+
+	<ui:define name="title">
+        .:Listado de Trabajos:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span> Trabajos </span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+			<div class="row">
+				<p:commandButton value="Nuevo"
+					action="#{trabajoController.newTrabajo()}"
+					styleClass="btn btn-primary" ajax="false" />
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+
+						<p:dataTable id="lstTrabajo" var="f"
+							value="#{trabajoController.listaTrabajos}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen trabajos" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{f.idTrabajo}">
+								<h:outputText value="#{f.idTrabajo}" />
+							</p:column>
+							<p:column headerText="Titulo" sortBy="#{f.nameTrabajo}">
+								<h:outputText value="#{f.nameTrabajo}" />
+							</p:column>
+							<p:column headerText="Descripcion"
+								sortBy="#{f.descriptionTrabajo}">
+								<h:outputText value="#{f.descriptionTrabajo}" />
+							</p:column>
+							<p:column headerText="Estado Trabajo" sortBy="#{f.estadoTrabajo}">
+								<h:outputText value="#{f.estadoTrabajo}" />
+							</p:column>
+							<p:column headerText="Fecha de Creacion Trabajo"
+								sortBy="#{f.dateCreacionAnuncio}">
+								<h:outputText value="#{f.dateCreacionAnuncio}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+							
+							<p:column headerText="Monto" sortBy="#{f.nuevoPagoTrabajo}">
+								<h:outputText value="#{f.nuevoPagoTrabajo}" />
+							</p:column>
+							
+							<p:column headerText="Freelancer" sortBy="#{f.freelancers.nameFreelancers}">
+								<h:outputText value="#{f.freelancers.nameFreelancers}" />
+							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listFreelancer" value="Eliminar"
+									actionListener="#{trabajoControllerr.eliminar(f)}"></h:commandLink>
+							</p:column>
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink value="Modificar"
+									action="#{trabajoController.modificar(f)}"
+									style="color:blue;" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Anuncio:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Anuncio</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAnuncio" value="ID"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idAnuncio"
+				styleClass="form-control"
+				value="#{anuncioController.anuncio.idAnuncio}"
+				required="true" />
+
+			<h:outputLabel for="nameAnuncio" value="Nombre Anuncio "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nameAnuncio"
+				styleClass="form-control"
+				value="#{anuncioController.anuncio.nameAnuncio}"
+				maxlength="30" required="true" />
+
+
+			<h:outputLabel for="descripcionAnuncio" value="Descripcion"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="descripcionAnuncio"
+				styleClass="form-control"
+				value="#{anuncioController.anuncio.descriptionAnuncio}"
+				maxlength="30" required="true">
+			</p:inputText>
+
+			<h:outputLabel for="pagoAnuncio"
+				value="Monto de pago en soles" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="pagoAnuncio"
+				styleClass="form-control"
+				value="#{anuncioController.anuncio.pagoAnuncio}"
+				maxlength="30" required="true">
+			</p:inputText>
+
+
+
+
+			<h:outputLabel for="date" value="Fecha de Inscripcion"
+				styleClass="control-label" />
+
+
+			<p:calendar id="date" pattern="dd/MM/yyyy"
+				value="#{anuncioController.anuncio.dateCreacionAnuncio}" showOn="button"
+				timeZone="UTC" required="true">
+
+			</p:calendar>
+
+
+			<br />
+			<p:commandButton value="Grabar"
+				actionListener="#{anuncioController.modificar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listFreelancers?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listFreelancers?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
