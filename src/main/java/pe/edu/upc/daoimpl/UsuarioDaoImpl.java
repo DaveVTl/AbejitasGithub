@@ -45,7 +45,7 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 	public List<Usuario> findAll() throws Exception {
 		List<Usuario> users = new ArrayList<>();
 
-		Query query = em.createQuery("SELECT c FROM User c");
+		Query query = em.createQuery("SELECT c FROM Usuario c");
 		users = (List<Usuario>) query.getResultList();
 
 		return users;
@@ -55,7 +55,7 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 	public Optional<Usuario> findById(Usuario t) throws Exception {
 
 		Usuario user;
-		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM User u WHERE u.id = ?1", Usuario.class);
+		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.id = ?1", Usuario.class);
 		query.setParameter(1, t.getFreelancer().getIdFreelancers());
 
 		user = query.getSingleResult();
@@ -66,10 +66,9 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 	@Override
 	public String getPassworHashedByUserName(String username) throws Exception {
 		Usuario user = new Usuario();
-
 		try {
 
-			Query query = em.createQuery("FROM User u WHERE u.username = ?1");
+			Query query = em.createQuery("FROM Usuario u WHERE u.username = ?1");
 			query.setParameter(1, username);
 			@SuppressWarnings("unchecked")
 			List<Usuario> lista = query.getResultList();
@@ -87,7 +86,7 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 	public Optional<Usuario> findUserByUsername(Usuario user) throws Exception {
 		
 		Usuario userFound;
-		TypedQuery<Usuario> query = em.createQuery("FROM User u WHERE u.username = ?1 and u.password = ?2", Usuario.class);
+		TypedQuery<Usuario> query = em.createQuery("FROM Usuario u WHERE u.username = ?1 and u.password = ?2", Usuario.class);
 		query.setParameter(1, user.getUsername());
 		query.setParameter(2, user.getPassword());
 
