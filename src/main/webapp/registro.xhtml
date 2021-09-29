@@ -10,26 +10,34 @@
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
 	<link rel="shortcut icon" type="image/x-icon"
 		href="resources/img/favicon.ico" />
+	<h:outputStylesheet name="NewFile.css" library="css" />
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+	<h:outputStylesheet name="css/main_base.css" />
+	<h:outputStylesheet name="css/font_ico.css" />
 </h:head>
 <body>
 
 	<h:form id="frm">
 		<p:growl id="men" />
 		<center>
-			<h:graphicImage value="/resources/img/logo.png" height="15%"
+			<h:graphicImage value="/resources/img/logo.gif" height="15%"
 				width="15%"></h:graphicImage>
 			<br />
 		</center>
 		<div align="center">
 
 			<f:facet name="header">Registrar Usuario</f:facet>
+			
 			<h:panelGrid id="pg" columns="4">
+			<h:column />
+				<p>
 				<p:outputLabel for="txtName" value="Nombres" />
 				<p:inputText id="txtName"
 					value="#{registroController.freelancers.nameFreelancers}"
 					required="true" styleClass="form-control" />
-				<h:column />
-
+				</p>
+			
+				<p>
 				<p:outputLabel for="txtDni" value="Dni" />
 				<p:inputText id="txtDni"
 					value="#{registroController.freelancers.dniFreelancers}"
@@ -37,8 +45,9 @@
 					counterTemplate="{0} caracteres restantes." autoResize="false"
 					required="true" styleClass="form-control" />
 				<h:message for="txtDni" display="text" />
-				<h:column />
-
+				</p>
+				
+				<p>
 				<p:outputLabel for="txtDescripcion" value="Descripcion" />
 				<p:inputText id="txtDescripcion"
 					value="#{registroController.freelancers.descriptionFreelancers}"
@@ -46,8 +55,9 @@
 					counterTemplate="{0} caracteres restantes." autoResize="false"
 					required="true" styleClass="form-control" />
 				<h:message for="txtDescripcion" display="text" />
-				<h:column />
-
+				</p>
+				
+				<p>
 				<p:outputLabel for="txtCV" value="CV" />
 				<p:inputText id="txtCV"
 					value="#{registroController.freelancers.CVFreelancers}"
@@ -55,8 +65,9 @@
 					counterTemplate="{0} caracteres restantes." autoResize="false"
 					required="true" styleClass="form-control" />
 				<h:message for="txtCV" display="text" />
-				<h:column />
-
+				</p>
+				
+				<p>
 				<p:outputLabel for="txtFoto" value="Foto" />
 				<p:inputText id="txtFoto"
 					value="#{registroController.freelancers.fotoFreelancers}"
@@ -64,16 +75,16 @@
 					counterTemplate="{0} caracteres restantes." autoResize="false"
 					required="true" styleClass="form-control" />
 				<h:message for="txtFoto" display="text" />
-				<h:column />
+				</p>
 
-
+				<p>
 				<h:outputLabel for="date" value="Fecha de Inscripcion"
 					styleClass="control-label" />
 				<p:calendar id="date" pattern="dd/MM/yyyy"
 					value="#{registroController.freelancers.fechaInscripcionFreelancers}"
 					showOn="button" timeZone="UTC" required="true">
 				</p:calendar>
-				
+				</p>
 				<h:column />
 				<h:column />
 				<h:outputText id="display" />

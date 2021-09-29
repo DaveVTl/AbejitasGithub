@@ -17,6 +17,8 @@ import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.service.IFreelancersService;
 import pe.edu.upc.service.IRolService;
 
+
+
 @Named
 @ViewScoped
 public class RegistroController implements Serializable {
@@ -55,13 +57,17 @@ public class RegistroController implements Serializable {
 			r.setId(TIPO_USUARIO);
 			roles.add(r);
 			rS.assignRolesToUser(user, roles);
-			redirect = "index?faces-redirect=true";
+		
+			redirect = "login?faces-redirect=true";
 		} catch (Exception e) {
-
+			
 		}
 
 		return redirect;
 	}
+	
+ 
+
 
 	public Freelancers getFreelancers() {
 		return f;
