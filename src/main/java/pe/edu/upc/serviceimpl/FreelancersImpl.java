@@ -12,10 +12,10 @@ import pe.edu.upc.service.IFreelancersService;
 
 @Named
 @RequestScoped
-public class FreelancersImpl implements IFreelancersService{
-	
-@Inject
-private IFreelancersDao fDao;
+public class FreelancersImpl implements IFreelancersService {
+
+	@Inject
+	private IFreelancersDao fDao;
 
 	@Override
 	public void insert(Freelancers f) {
@@ -36,8 +36,7 @@ private IFreelancersDao fDao;
 
 	@Override
 	public void modificar(Freelancers freelancer) {
-		fDao.modificar(freelancer);		
+		fDao.modificar(freelancer);
 	}
-	
 
 }

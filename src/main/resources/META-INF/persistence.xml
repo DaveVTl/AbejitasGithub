@@ -14,7 +14,9 @@
 		<class>pe.edu.upc.entities.Trabajo</class>
 		<class>pe.edu.upc.entities.Reviews</class>
 		<class>pe.edu.upc.entities.Avances</class>
-		<class>pe.edu.upc.entities.UsuarioFreelancer</class>
+		<class>pe.edu.upc.entities.Usuario</class>
+		<class>pe.edu.upc.entities.Rol</class>
+		<class>pe.edu.upc.entities.UsuarioRol</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

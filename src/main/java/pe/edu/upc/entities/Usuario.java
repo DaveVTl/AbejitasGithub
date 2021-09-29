@@ -13,8 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usersfree")
-public class UsuarioFreelancer implements Serializable {
+@Table(name = "users")
+public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class UsuarioFreelancer implements Serializable {
 	/**
 	 * 
 	 */
-	public UsuarioFreelancer() {
+	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -51,7 +51,7 @@ public class UsuarioFreelancer implements Serializable {
 	 * @param password
 	 * @param state
 	 */
-	public UsuarioFreelancer(int id, Freelancers freelancer, String username, String password, String state) {
+	public Usuario(int id, Freelancers freelancer, String username, String password, String state) {
 		super();
 		this.id = id;
 		this.freelancer = freelancer;
@@ -113,7 +113,7 @@ public class UsuarioFreelancer implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuarioFreelancer other = (UsuarioFreelancer) obj;
+		Usuario other = (Usuario) obj;
 		return Objects.equals(freelancer, other.freelancer) && id == other.id
 				&& Objects.equals(password, other.password) && Objects.equals(state, other.state)
 				&& Objects.equals(username, other.username);

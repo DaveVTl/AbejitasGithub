@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "Freelancers")
 public class Freelancers implements Serializable {
@@ -43,7 +44,7 @@ public class Freelancers implements Serializable {
 	private Date fechaInscripcionFreelancers;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "freelancer")
-	private UsuarioFreelancer usuario;
+	private Usuario usuario;
 
 	/**
 	 * @param idFreelancers
@@ -56,7 +57,7 @@ public class Freelancers implements Serializable {
 	 * @param usuario
 	 */
 	public Freelancers(int idFreelancers, String nameFreelancers, int dniFreelancers, String descriptionFreelancers,
-			String cVFreelancers, String fotoFreelancers, Date fechaInscripcionFreelancers, UsuarioFreelancer usuario) {
+			String cVFreelancers, String fotoFreelancers, Date fechaInscripcionFreelancers, Usuario usuario) {
 		super();
 		this.idFreelancers = idFreelancers;
 		this.nameFreelancers = nameFreelancers;
@@ -153,6 +154,13 @@ public class Freelancers implements Serializable {
 				&& Objects.equals(fechaInscripcionFreelancers, other.fechaInscripcionFreelancers)
 				&& Objects.equals(fotoFreelancers, other.fotoFreelancers) && idFreelancers == other.idFreelancers
 				&& Objects.equals(nameFreelancers, other.nameFreelancers) && Objects.equals(usuario, other.usuario);
+	}
+	public Usuario getUser() {
+		return usuario;
+	}
+
+	public void setUser(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
