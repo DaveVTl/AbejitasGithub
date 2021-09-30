@@ -19,6 +19,8 @@ import pe.edu.upc.service.ITrabajoService;
 public class TrabajoController implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	
 	@Inject
 	private ITrabajoService tService;
 	
@@ -86,7 +88,7 @@ public class TrabajoController implements Serializable {
 
 	public String Modifpre(Trabajo trabajo) {
 		this.setTrabajo(trabajo);
-		return "trabajoMod.xhtml";///crear
+		return "trabajoModificar.xhtml";///crear
 
 	}
 	

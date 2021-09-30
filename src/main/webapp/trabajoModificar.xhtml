@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Trabajo:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Trabajo</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idTrabajo" value="ID" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idTrabajo"
+				styleClass="form-control"
+				value="#{trabajoController.trabajo.idTrabajo}" required="true" />
+			<!-- 
+			<p:inputText autocomplete="off" id="idMypes"
+				styleClass="form-control"
+			value="#{anuncioController.anuncio.mypes}" required="true" />
+-->
+			<h:outputLabel for="nameTrabajo" value="Nombre Trabajo"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nameTrabajo"
+				styleClass="form-control"
+				value="#{trabajoController.trabajo.nameTrabajo}" maxlength="45"
+				required="true" />
+
+			<h:outputLabel for="descriptionTrabajo"
+				value="Descripcion del Trabajo" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="descriptionTrabajo"
+				styleClass="form-control"
+				value="#{trabajoController.trabajo.descriptionTrabajo}"
+				maxlength="255" required="true" />
+
+			<h:outputLabel for="EstadoTrabajo" value="Estado Trabajo"
+				styleClass="control-label" />
+
+			<p:outputLabel for="@next" value="Basic" />
+			<p:selectOneMenu id="option"
+				value="#{trabajoController.trabajo.estadoTrabajo}">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItem itemLabel="En Progreso" itemValue="En Progreso" />
+				<f:selectItem itemLabel="Retrasado" itemValue="Retrasado" />
+				<f:selectItem itemLabel="Cancelado" itemValue="Cancelado" />
+				<f:selectItem itemLabel="Completado" itemValue="Compeltado" />
+
+			</p:selectOneMenu>
+
+
+			<h:outputLabel for="nuevoPagoTrabajo" value="Pago"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nuevoPagoTrabajo"
+				styleClass="form-control"
+				value="#{trabajoController.trabajo.nuevoPagoTrabajo}"
+				maxlength="255" required="true" />
+
+
+
+
+			<h:outputLabel for="dateCreacionAnuncio" value="Fecha de Creación"
+				styleClass="control-label" />
+			<p:calendar id="dateCreacionAnuncio" pattern="dd/MM/yyyy"
+				value="#{trabajoController.trabajo.dateCreacionAnuncio}"
+				showOn="button" timeZone="UTC" required="true">
+
+			</p:calendar>
+
+			<br />
+			<p:outputLabel for="cbofreelancers" value="Freelancers"
+				styleClass="control-label" />
+
+			<p:selectOneMenu id="cbofreelancers"
+				value="#{trabajoController.trabajo.freelancers}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{trabajoController.listFreelancerss}"
+					var="f" itemLabel="#{f.nameFreelancers}" itemValue="#{f.idFreelancers}" />
+			</p:selectOneMenu>
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{trabajoController.modificar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listTrabajos?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listTrabajos?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
