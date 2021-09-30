@@ -1,5 +1,6 @@
 package pe.edu.upc.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,9 @@ import pe.edu.upc.service.ITrabajoService;
 
 @Named
 @RequestScoped
-public class TrabajoController {
+public class TrabajoController implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private ITrabajoService tService;
 	
@@ -27,17 +29,18 @@ public class TrabajoController {
 	private Trabajo trabajo;
 	private Freelancers f;
 	
-	List<Trabajo>listaTrabajos;
-	List<Freelancers>listaFreelancerss;
+	List<Trabajo>listTrabajos;
+	List<Freelancers>listFreelancerss;
 	
 	@PostConstruct
 	public void init() {
-		this.listaTrabajos = new ArrayList<Trabajo>();
-		this.trabajo = new Trabajo();
-		this.listaFreelancerss = new ArrayList<Freelancers>();
-		this.f = new Freelancers();
+		f = new Freelancers();
+		trabajo = new Trabajo();
+		listTrabajos = new ArrayList<>();
+		listFreelancerss = new ArrayList<>();
+		
 		this.listTrabajo(); //- - - Lista de Tipos de Trabajo
-		this.listFreelancerss(); //- - Lista de Anuncios por mypes
+		this.listFreelancer(); //- - Lista de Anuncios por mypes
 	
 	}
 	
@@ -49,9 +52,10 @@ public class TrabajoController {
 	}
 	
 	
-	public void CrearTrabajo() {
+	public void insert() {
 		tService.insert(trabajo);
-		listTrabajo();
+		clean();
+		this.listTrabajo();
 		
 	}
 	
@@ -91,7 +95,7 @@ public class TrabajoController {
 			if (trabajo.getEstadoTrabajo().isEmpty()) {
 				this.listTrabajo();
 			} else {
-				listaTrabajos = this.tService.finByStatus(this.getTrabajo());
+				listTrabajos = this.tService.finByStatus(this.getTrabajo());
 			}
 		} catch (Exception e) {
 			e.getMessage();
@@ -101,94 +105,61 @@ public class TrabajoController {
 	//boton ver lista de tipos de  trabajos
 	public void listTrabajo() {
 		try {
-			listaTrabajos=tService.list();
+			listTrabajos=tService.list();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 		
 	}
 	
-	public void listFreelancerss() {
+	public void listFreelancer() {
 		
 		try {
-			listaFreelancerss=fService.list();
+			listFreelancerss=fService.list();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-
-	
-	//GETTERS & SETTERS
-
-	public ITrabajoService gettService() {
-		return tService;
-	}
-
-
-
-	public void settService(ITrabajoService tService) {
-		this.tService = tService;
-	}
-
-
-
-	public IFreelancersService getfService() {
-		return fService;
-	}
-
-
-
-	public void setfService(IFreelancersService fService) {
-		this.fService = fService;
-	}
-
-
 
 	public Trabajo getTrabajo() {
 		return trabajo;
 	}
 
-
-
 	public void setTrabajo(Trabajo trabajo) {
 		this.trabajo = trabajo;
 	}
-
-
 
 	public Freelancers getF() {
 		return f;
 	}
 
-
-
 	public void setF(Freelancers f) {
 		this.f = f;
 	}
 
-
-
-	public List<Trabajo> getListaTrabajos() {
-		return listaTrabajos;
+	public List<Trabajo> getListTrabajos() {
+		return listTrabajos;
 	}
 
-
-
-	public void setListaTrabajos(List<Trabajo> listaTrabajos) {
-		this.listaTrabajos = listaTrabajos;
+	public void setListTrabajos(List<Trabajo> listTrabajos) {
+		this.listTrabajos = listTrabajos;
 	}
 
-
-
-	public List<Freelancers> getListaFreelancerss() {
-		return listaFreelancerss;
+	public List<Freelancers> getListFreelancerss() {
+		return listFreelancerss;
 	}
 
-
-
-	public void setListaFreelancerss(List<Freelancers> listaFreelancerss) {
-		this.listaFreelancerss = listaFreelancerss;
+	public void setListFreelancerss(List<Freelancers> listFreelancerss) {
+		this.listFreelancerss = listFreelancerss;
 	}
+
+	
+	
+	//GETTERS & SETTERS
+
+
+
+
 	
 	
 }

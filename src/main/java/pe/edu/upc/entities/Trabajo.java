@@ -1,7 +1,8 @@
 package pe.edu.upc.entities;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,13 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Trabajo")
-public class Trabajo {
-//a
+public class Trabajo implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTrabajo;
@@ -34,18 +35,26 @@ public class Trabajo {
 	@Column(name = "nuevoPagoTrabajo", nullable = false)
 	private double nuevoPagoTrabajo;
 
-	@ManyToOne
+	
 	@JoinColumn(name = "idFreelancers", nullable = false)
-	private Freelancers freelancers;
+	private int freelancers;
 
 	public Trabajo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @param idTrabajo
+	 * @param nameTrabajo
+	 * @param descriptionTrabajo
+	 * @param estadoTrabajo
+	 * @param dateCreacionAnuncio
+	 * @param nuevoPagoTrabajo
+	 * @param freelancers
+	 */
 	public Trabajo(int idTrabajo, String nameTrabajo, String descriptionTrabajo, String estadoTrabajo,
-			Date dateCreacionAnuncio, double nuevoPagoTrabajo, Freelancers freelancers, Anuncio anuncio,
-			TipoPago tipoPago) {
+			Date dateCreacionAnuncio, double nuevoPagoTrabajo, int freelancers) {
 		super();
 		this.idTrabajo = idTrabajo;
 		this.nameTrabajo = nameTrabajo;
@@ -104,37 +113,16 @@ public class Trabajo {
 		this.nuevoPagoTrabajo = nuevoPagoTrabajo;
 	}
 
-	public Freelancers getFreelancers() {
+	public int getFreelancers() {
 		return freelancers;
 	}
 
-	public void setFreelancers(Freelancers freelancers) {
+	public void setFreelancers(int freelancers) {
 		this.freelancers = freelancers;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(EstadoTrabajo, dateCreacionAnuncio, descriptionTrabajo, freelancers, idTrabajo, nameTrabajo,
-				nuevoPagoTrabajo);
-	}
+	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Trabajo other = (Trabajo) obj;
-		return Objects.equals(EstadoTrabajo, other.EstadoTrabajo)
-				&& Objects.equals(dateCreacionAnuncio, other.dateCreacionAnuncio)
-				&& Objects.equals(descriptionTrabajo, other.descriptionTrabajo)
-				&& Objects.equals(freelancers, other.freelancers) && idTrabajo == other.idTrabajo
-				&& Objects.equals(nameTrabajo, other.nameTrabajo)
-				&& Double.doubleToLongBits(nuevoPagoTrabajo) == Double.doubleToLongBits(other.nuevoPagoTrabajo);
-	}
-	
-	
+
 
 }

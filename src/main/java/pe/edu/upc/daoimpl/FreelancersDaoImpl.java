@@ -1,5 +1,6 @@
 package pe.edu.upc.daoimpl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,8 @@ import pe.edu.upc.entities.Freelancers;
 
 
 
-public class FreelancersDaoImpl implements IFreelancersDao {
-	
+public class FreelancersDaoImpl implements IFreelancersDao, Serializable{
+	private static final long serialVersionUID = 1L;
 	@PersistenceContext(unitName = "demoCrudSV61")
 	private EntityManager em;
 

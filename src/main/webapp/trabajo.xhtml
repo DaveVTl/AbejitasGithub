@@ -82,14 +82,14 @@
 			<p:selectOneMenu id="cbofreelancers"
 				value="#{trabajoController.trabajo.freelancers}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{trabajoController.listaFreelancerss}"
-					var="f" itemLabel="#{f.idFreelancers}" itemValue="#{f}" />
+				<f:selectItems value="#{trabajoController.listFreelancerss}"
+					var="f" itemLabel="#{f.nameFreelancers}" itemValue="#{f.idFreelancers}" />
 			</p:selectOneMenu>
 			<br />
 
 
 			<p:commandButton value="Grabar"
-				actionListener="#{trabajoController.CrearTrabajo()}"
+				actionListener="#{trabajoController.insert()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listTrabajos?faces-redirect=true" />
 			<p:commandButton value="Cancelar"

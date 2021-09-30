@@ -1,5 +1,6 @@
 package pe.edu.upc.daoimpl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,8 @@ import pe.edu.upc.entities.Trabajo;
 
 
 
-public class TrabajoDaoImpl implements ITrabajoDao {
-	
+public class TrabajoDaoImpl implements ITrabajoDao, Serializable {
+	private static final long serialVersionUID = 1L;
 	@PersistenceContext(unitName = "demoCrudSV61")
 	private EntityManager em;
 

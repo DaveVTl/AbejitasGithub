@@ -1,5 +1,6 @@
 package pe.edu.upc.serviceimpl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -13,8 +14,9 @@ import pe.edu.upc.service.ITrabajoService;
 
 @Named
 @RequestScoped
-public class TrabajoServiceImpl implements ITrabajoService {
-
+public class TrabajoServiceImpl implements ITrabajoService, Serializable  {
+	
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private ITrabajoDao tDao;
 

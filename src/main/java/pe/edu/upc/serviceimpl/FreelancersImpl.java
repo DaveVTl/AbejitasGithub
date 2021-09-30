@@ -1,5 +1,6 @@
 package pe.edu.upc.serviceimpl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -12,8 +13,8 @@ import pe.edu.upc.service.IFreelancersService;
 
 @Named
 @RequestScoped
-public class FreelancersImpl implements IFreelancersService {
-
+public class FreelancersImpl implements IFreelancersService , Serializable{
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private IFreelancersDao fDao;
 

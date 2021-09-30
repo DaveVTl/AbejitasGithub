@@ -32,7 +32,7 @@
 					<div class="form-group table-responsive box-table-class">
 
 						<p:dataTable id="lstTrabajo" var="f"
-							value="#{trabajoController.listaTrabajos}" paginator="true"
+							value="#{trabajoController.listTrabajos}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen trabajos" rowIndexVar="item"
@@ -62,8 +62,8 @@
 								<h:outputText value="#{f.nuevoPagoTrabajo}" />
 							</p:column>
 							
-							<p:column headerText="Freelancer" sortBy="#{f.freelancers.nameFreelancers}">
-								<h:outputText value="#{f.freelancers.nameFreelancers}" />
+							<p:column headerText="Freelancer" sortBy="#{f.freelancers}">
+								<h:outputText value="#{f.freelancers}" />
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">
